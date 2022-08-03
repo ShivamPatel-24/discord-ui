@@ -1,12 +1,18 @@
 export const validateLoginForm = ({ email, password }) => {
-    const isMailValid = validateMail(email);
-    const isPasswordValid = validatePassword(password);
-
-    return isMailValid && isPasswordValid;
+    return validateMail(email) && validateNumChar(password, true);
 };
 
-const validatePassword = (password) => {
-    return password.length > 5;
+export const validateRegisterForm = ({ email, username, password }) => {
+    return (
+        validateMail(email) &&
+        validateNumChar(username, false) &&
+        validateNumChar(password, true)
+    );
+};
+
+const validateNumChar = (word, pass) => {
+    if (pass) return word.length >= 6 && word.length <= 15;
+    return word.length >= 3 && word.length <= 12;
 };
 
 const validateMail = (mail) => {
