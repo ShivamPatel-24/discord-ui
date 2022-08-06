@@ -10,6 +10,7 @@ import "./App.css";
 import LoginPage from "./authPages/LoginPage/LoginPage";
 import RegisterPage from "./authPages/RegisterPage/RegisterPage";
 import Dashboard from "./Dashboard/Dashboard";
+import AlertNotification from "./shared/components/AlertNotification";
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/" element={<Navigate to="/dashboard" />} />
                 </Routes>
             </Router>
+            <AlertNotification />
         </>
     );
 }
